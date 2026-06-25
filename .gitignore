@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# material de origem já migrado para dentro do app (não faz parte do site Next.js)
+/landing-page-reumatologia---vivaclin/
+/landing-page-reumatologia---vivaclin.zip

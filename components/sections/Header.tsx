@@ -7,22 +7,29 @@ import { WHATSAPP_URL } from "@/lib/constants";
 
 const NAV_LINKS = [
   { label: "Início", href: "/" },
-  { label: "Especialidades", href: "#areas-de-atuacao" },
-  { label: "Sobre Nós", href: "#sobre" },
-  { label: "Consultório", href: "#consultorio" },
-  { label: "Contato", href: "#footer" },
+  { label: "Especialidades", href: "/#areas-de-atuacao" },
+  { label: "Sobre Nós", href: "/#sobre" },
+  { label: "Consultório", href: "/#consultorio" },
+  { label: "Contato", href: "/#footer" },
 ];
 
-export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+interface HeaderProps {
+  /** Páginas sem foto de fundo no topo (ex: páginas de especialidade) devem passar `false`. */
+  transparentAtTop?: boolean;
+}
+
+export default function Header({ transparentAtTop = true }: HeaderProps) {
+  const [isScrolled, setIsScrolled] = useState(!transparentAtTop);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
+    if (!transparentAtTop) return;
+
     const handleScroll = () => setIsScrolled(window.scrollY > 40);
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [transparentAtTop]);
 
   const textColor = isScrolled ? "text-brand-dark" : "text-white";
 
