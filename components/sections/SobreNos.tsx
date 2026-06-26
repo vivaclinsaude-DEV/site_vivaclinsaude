@@ -90,7 +90,7 @@ export default function SobreNos() {
         </p>
       </div>
 
-      <div className="mx-auto mt-14 grid max-w-[1536px] grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto mt-14 grid max-w-[1536px] grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {TEAM.map((member) => (
           <div
             key={member.slug}
