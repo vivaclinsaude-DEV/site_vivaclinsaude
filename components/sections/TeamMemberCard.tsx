@@ -110,7 +110,7 @@ export default function TeamMemberCard({ member }: { member: TeamMember }) {
         {/* VERSO */}
         <div className="absolute inset-0 flex h-full flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
           <div>
-            <h3 className="text-2xl leading-tight">
+            <h3 className="text-5xl leading-tight">
               <span className="font-body text-brand-dark">{title}</span>{" "}
               <span className="font-heading text-brand-dark italic">
                 {fullName}
