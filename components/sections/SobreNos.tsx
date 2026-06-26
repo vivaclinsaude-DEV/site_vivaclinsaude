@@ -34,7 +34,7 @@ const TEAM: TeamMember[] = [
     namePrefix: "Dra. Danielle",
     nameRest: "Lima da Costa",
     role: "Médica",
-    image: "/images/about-us-danielle.jpeg",
+    image: "/images/about-us-danielle-v2.jpeg",
     highlights: [
       "Graduada em medicina pela FAMINAS – Faculdade de Minas",
       "Pós-graduanda em Gastroenterologia – Afya Educação Médica",
