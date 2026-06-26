@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/constants";
+import TeamMemberCard from "./TeamMemberCard";
 
 interface TeamMember {
   slug: string;
@@ -47,7 +47,7 @@ const TEAM: TeamMember[] = [
   },
   {
     slug: "silvia",
-    namePrefix: "Silvia",
+    namePrefix: "Dra. Silvia",
     nameRest: "Carvalho",
     role: "Nutricionista",
     image: "/images/about-us-silvia.jpeg",
@@ -64,7 +64,7 @@ const TEAM: TeamMember[] = [
   },
   {
     slug: "jaqueline",
-    namePrefix: "Jaqueline",
+    namePrefix: "Dra. Jaqueline",
     nameRest: "Pantolfo",
     role: "Psicóloga",
     image: "/images/about-us-jaqueline.jpeg",
@@ -92,27 +92,7 @@ export default function SobreNos() {
 
       <div className="mx-auto mt-14 grid max-w-[1536px] grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {TEAM.map((member) => (
-          <div
-            key={member.slug}
-            className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm"
-          >
-            <div className="relative aspect-[4/5]">
-              <Image
-                src={member.image}
-                alt={`${member.namePrefix} ${member.nameRest}`}
-                fill
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-
-            <div className="p-6">
-              <h3 className="font-body text-lg text-brand-dark">
-                <span className="font-semibold">{member.namePrefix}</span>{" "}
-                <span className="text-text-body/80">{member.nameRest}</span>
-              </h3>
-            </div>
-          </div>
+          <TeamMemberCard key={member.slug} member={member} />
         ))}
       </div>
 
