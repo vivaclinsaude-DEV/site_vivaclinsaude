@@ -103,14 +103,14 @@ export default function EspecialidadesGrid() {
           <div className="pointer-events-none absolute -bottom-12 -left-12 h-44 w-44 rounded-full bg-white/5 blur-3xl" />
 
           <div className="relative flex flex-1 flex-col items-start justify-center gap-4 p-6 sm:p-8">
-            <div className="rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-md">
+            <div className="rounded-2xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur-md">
               <Heart className="h-6 w-6 fill-white text-white" />
               <h3 className="mt-4 font-heading text-xl text-white italic">
-                Não encontrou sua especialidade?
+                Estamos aqui pra cuidar de você
               </h3>
               <p className="mt-2 font-body text-sm text-white/85">
-                Fale com a nossa equipe e vamos te ajudar a encontrar o
-                cuidado certo pra você.
+                Não sabe por onde começar? Fale com a gente — vamos te ouvir
+                com atenção e te ajudar a encontrar o cuidado certo.
               </p>
               <a
                 href={WHATSAPP_URL}
