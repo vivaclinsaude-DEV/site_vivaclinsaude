@@ -8,8 +8,8 @@ interface TeamMember {
   nameRest: string;
   role: string;
   image: string;
-  highlights: string[];
-  bio: string[];
+  highlights?: string[];
+  bio?: string[];
 }
 
 const TEAM: TeamMember[] = [
@@ -61,6 +61,13 @@ const TEAM: TeamMember[] = [
       "Ofereço suporte nutricional especializado que promove a saúde, contribui para o emagrecimento, controle da glicose, pressão arterial e colesterol, previne o câncer e fortalece os pacientes em tratamento oncológico.",
       "Minha missão é proporcionar um atendimento humanizado e acolhedor, desenvolvendo planos alimentares individualizados que respeitem as necessidades e preferências de cada paciente, adequando e equilibrando o que é necessário para promover saúde e qualidade de vida.",
     ],
+  },
+  {
+    slug: "jaqueline",
+    namePrefix: "Jaqueline",
+    nameRest: "Pantolfo",
+    role: "Psicóloga",
+    image: "/images/about-us-jaqueline.jpeg",
   },
 ];
 
