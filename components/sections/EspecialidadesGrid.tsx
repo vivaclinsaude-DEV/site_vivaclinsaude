@@ -87,13 +87,16 @@ export default function EspecialidadesGrid() {
               <p className="line-clamp-3 h-[4.5rem] font-body text-sm text-text-body/80">
                 {specialty.excerpt}
               </p>
-              <Link
-                href={`/areas-de-atuacao/${specialty.slug}`}
-                className="mt-auto inline-flex items-center gap-1 font-body text-sm font-semibold text-brand-primary"
-              >
-                Saiba mais
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+              {/* Reumatologia é uma landing page de campanha, sem link de acesso pelo site */}
+              {specialty.slug !== "reumatologia" && (
+                <Link
+                  href={`/areas-de-atuacao/${specialty.slug}`}
+                  className="mt-auto inline-flex items-center gap-1 font-body text-sm font-semibold text-brand-primary"
+                >
+                  Saiba mais
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
             </div>
           </div>
         ))}
