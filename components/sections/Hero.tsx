@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative h-dvh w-full overflow-hidden pt-28 sm:pt-0">
       <Image
-        src="/images/bg_hero_section7.jpeg"
+        src="/images/bg_hero_section_jaleco_branco.jpeg"
         alt="Dra. Juliana Coimbra de Mendonça e Dra. Danielle Lima da Costa, médicas da VivaClin Saúde"
         fill
         priority
