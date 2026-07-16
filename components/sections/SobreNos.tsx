@@ -18,7 +18,7 @@ const TEAM: TeamMember[] = [
     namePrefix: "Dra. Juliana",
     nameRest: "Coimbra de Mendonça",
     role: "Médica",
-    image: "/images/about-us-juliana.jpeg",
+    image: "/images/about-us-juliana-branco.jpeg",
     highlights: [
       "Graduada em medicina pela FAME – Faculdade de Medicina de Barbacena",
       "Pós-graduanda em Reumatologia e Geriatria",
@@ -34,7 +34,7 @@ const TEAM: TeamMember[] = [
     namePrefix: "Dra. Danielle",
     nameRest: "Lima da Costa",
     role: "Médica",
-    image: "/images/about-us-danielle-v2.jpeg",
+    image: "/images/about-us-danielle-branco.jpeg",
     highlights: [
       "Graduada em medicina pela FAMINAS – Faculdade de Minas",
       "Pós-graduanda em Gastroenterologia – Afya Educação Médica",
