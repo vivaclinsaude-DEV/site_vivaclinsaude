@@ -6,23 +6,18 @@ import {
   Phone,
   MessageCircle,
   Heart,
-  Activity,
-  Sparkles,
-  FileText,
   MapPin,
   Star,
   CalendarCheck,
-  ClipboardList,
   CheckCircle2,
-  ArrowUpRight,
   ChevronLeft,
   ChevronRight,
+  Sparkles,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
-interface Condition {
+interface Symptom {
   title: string;
-  description: string;
   image: string;
 }
 
@@ -35,43 +30,13 @@ interface Review {
   initials: string;
 }
 
-const CONDITIONS: Condition[] = [
-  {
-    title: "Artrite Reumatoide",
-    description:
-      "Inflamação crônica que afeta as articulações, causando dor intensa, rigidez matinal e inchaço, principalmente nas mãos e pés.",
-    image: "/images/img_artrite.png",
-  },
-  {
-    title: "Fibromialgia",
-    description:
-      "Dor generalizada associada a fadiga crônica, distúrbios de sono, alterações de memória e sensibilidade amplificada pelo corpo.",
-    image: "/images/img_fibromiaogia.png",
-  },
-  {
-    title: "Artrose",
-    description:
-      "Desgaste progressivo da cartilagem das articulações, provocando dor profunda, estalos e limitação de movimentos em joelhos, quadris e coluna.",
-    image: "/images/img_artrose.png",
-  },
-  {
-    title: "Osteoporose",
-    description:
-      "Enfraquecimento silencioso da estrutura óssea que aumenta significativamente o risco de fraturas com mínimos impactos.",
-    image: "/images/img_osteoporose.png",
-  },
-  {
-    title: "Lúpus",
-    description:
-      "Doença autoimune complexa que pode afetar articulações, pele, rins, células sanguíneas, cérebro, coração e pulmões.",
-    image: "/images/img_lupus.png",
-  },
-  {
-    title: "Dor Articular Crônica",
-    description:
-      "Casos persistentes de desconforto nas articulações que ainda não possuem um diagnóstico fechado, necessitando de uma investigação detalhada.",
-    image: "/images/img_dor_articular.png",
-  },
+const SYMPTOMS: Symptom[] = [
+  { title: "Gripe e resfriado forte", image: "/images/img_gripe_refriado_forte.png" },
+  { title: "Dor de garganta e infecção", image: "/images/img_dor_garganta_infec.png" },
+  { title: "Febre que não passa", image: "/images/img_febre.png" },
+  { title: "Sinusite e congestão", image: "/images/img_sinusite.png" },
+  { title: "Bronquite e tosse persistente", image: "/images/img_bronquite.png" },
+  { title: "Virose e mal-estar", image: "/images/img_virose.png" },
 ];
 
 const GOOGLE_REVIEWS_URL = "https://maps.app.goo.gl/cRrJeuxN6TSghugS8";
@@ -117,7 +82,7 @@ const REVIEWS: Review[] = [
     name: "Paula",
     meta: "Local Guide · 25 avaliações",
     content:
-      "Minha experiência na Vivaclin foi excelente. Dra. Juliana é uma profissional exemplar, atenciosa, cuidadosa, com muito carinho e dedicação orienta cada situação diante do tratamento, um atendimento humanizado e acolhedor. Gratidão! Super indico 🙏. Não tive contato com as demais profissionais, mas acredito que pelo perfil da clínica não são diferentes da Dra. Juliana.",
+      "Minha experiência na Vivaclin foi excelente. Dra. Juliana é uma profissional exemplar, atenciosa, cuidadosa, com muito carinho e dedicação orienta cada situação diante do tratamento, um atendimento humanizado e acolhedor. Gratidão! Super indico 🙏.",
     rating: 5,
     time: "Há 3 meses",
     initials: "P",
@@ -150,19 +115,17 @@ const SPACES = [
   },
 ];
 
-const WHATSAPP_REUMATO_URL =
-  "https://wa.me/5531920090831?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20reumatológica%20com%20a%20Dra.%20Juliana%20Mendonça.";
+const WHATSAPP_CLINICA_URL =
+  "https://wa.me/5531920090831?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20clínica%20geral%20com%20a%20Dra.%20Danielle%20Costa.";
 
-export default function ReumatologiaContent() {
+export default function ClinicaGeralContent() {
   const [activeSpaceIndex, setActiveSpaceIndex] = useState(0);
 
-  const handleNextSpace = () => {
+  const handleNextSpace = () =>
     setActiveSpaceIndex((prev) => (prev + 1) % SPACES.length);
-  };
 
-  const handlePrevSpace = () => {
+  const handlePrevSpace = () =>
     setActiveSpaceIndex((prev) => (prev - 1 + SPACES.length) % SPACES.length);
-  };
 
   return (
     <>
@@ -182,25 +145,23 @@ export default function ReumatologiaContent() {
                 Atendimento Particular em Contagem, MG
               </span>
 
-              <h1 className="font-heading text-3xl leading-[1.12] tracking-tight text-brand-dark sm:text-5xl lg:text-6xl">
-                Dor nas articulações que não passa?{" "}
+              <h1 className="font-heading text-3xl leading-[1.1] tracking-tight text-brand-dark sm:text-5xl lg:text-6xl">
+                Gripe, dor de garganta, febre?{" "}
                 <em className="font-light text-brand-primary italic">
-                  Pode ser hora de procurar atendimento especializado na área
-                  reumatológica.
+                  A clínica geral que resolve, em Contagem.
                 </em>
               </h1>
 
               <p className="max-w-2xl font-body text-base leading-relaxed text-text-body sm:text-lg">
                 Atendimento particular com a{" "}
-                <strong>Dra. Juliana Mendonça</strong>, na{" "}
-                <strong>VivaClin</strong>, em Contagem. Diagnóstico cuidadoso e
-                acompanhamento contínuo para quem já tentou de tudo e ainda
-                sente dor.
+                <strong>Dra. Danielle Costa</strong>, presencial ou online. Sem
+                fila de UPA, sem espera de posto — cuidado de verdade quando
+                você não está bem.
               </p>
 
               <div className="mt-2 flex w-full flex-col items-stretch gap-4 sm:mt-4 sm:w-auto sm:flex-row sm:items-center">
                 <a
-                  href={WHATSAPP_REUMATO_URL}
+                  href={WHATSAPP_CLINICA_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-brand-primary px-6 py-3.5 font-body text-white shadow-md transition-all hover:bg-brand-primary/95 hover:shadow-lg sm:w-auto"
@@ -229,11 +190,11 @@ export default function ReumatologiaContent() {
               <div className="mt-1 flex flex-wrap items-center gap-x-6 gap-y-2 font-body text-xs text-brand-dark/60 sm:mt-2 sm:text-sm">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-primary" />
-                  Sem burocracia de convênios
+                  Consulta presencial ou online
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-primary" />
-                  Estrutura confortável e segura
+                  Sem burocracia de convênio
                 </span>
               </div>
             </div>
@@ -241,20 +202,19 @@ export default function ReumatologiaContent() {
             <div className="relative flex w-full justify-center lg:col-span-5">
               <div className="group relative aspect-[3/4] w-full max-w-md overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:max-w-none">
                 <Image
-                  src="/images/about-us-juliana.jpeg"
-                  alt="Dra. Juliana Mendonça - Reumatologista"
+                  src="/images/about-us-danielle-branco.jpeg"
+                  alt="Dra. Danielle Costa - Clínica Geral"
                   fill
                   quality={100}
                   sizes="(min-width: 1024px) 40vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-brand-dark/10 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 rounded-xl border border-brand-soft/10 bg-white/95 p-4 shadow-md backdrop-blur-xs">
                   <span className="block font-heading text-lg font-bold text-brand-dark">
-                    Dra. Juliana Mendonça
+                    Dra. Danielle Costa
                   </span>
-                  <span className="mt-0.5 block text-xs font-medium tracking-wider text-brand-primary uppercase font-body">
-                    CRM-MG 100919 • Reumatologia
+                  <span className="mt-0.5 block font-body text-xs font-medium tracking-wider text-brand-primary uppercase">
+                    CRM-MG 97.775 • Clínica Geral e Gastroenterologia
                   </span>
                 </div>
               </div>
@@ -263,71 +223,143 @@ export default function ReumatologiaContent() {
         </div>
       </section>
 
-      {/* SEÇÃO 2 — O PROBLEMA */}
+      {/* SEÇÃO 2 — SINTOMAS */}
       <section
-        id="problema"
-        className="bg-bg-neutral px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
+        id="sintomas"
+        className="bg-white px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
       >
-        <div className="mx-auto max-w-4xl">
-          <div className="flex flex-col items-start gap-8">
-            <div className="flex w-full flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-brand-soft/30 bg-brand-primary/10 text-brand-primary shadow-xs">
-                <Activity className="h-6 w-6 fill-brand-primary/20 text-brand-primary" />
+        <div className="mx-auto max-w-[1536px]">
+          <div className="mx-auto mb-14 flex max-w-3xl flex-col items-center gap-4 text-center">
+            <h2 className="text-3xl leading-tight text-brand-dark sm:text-4xl lg:text-5xl">
+              <span className="font-body font-bold">
+                Está com algum desses
+              </span>
+              <br />
+              <span className="font-heading italic text-brand-primary">
+                sintomas?
+              </span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {SYMPTOMS.map((symptom) => (
+              <div
+                key={symptom.title}
+                className="flex items-center gap-4 rounded-2xl border border-brand-soft/15 bg-bg-neutral p-5 shadow-xs"
+              >
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-brand-primary/10">
+                  <Image
+                    src={symptom.image}
+                    alt=""
+                    width={56}
+                    height={56}
+                    className="object-contain"
+                  />
+                </div>
+                <span className="font-body text-base font-medium text-brand-dark">
+                  {symptom.title}
+                </span>
               </div>
+            ))}
+          </div>
 
-              <h2 className="text-3xl leading-tight text-brand-dark sm:text-4xl lg:text-5xl">
-                <span className="font-body font-bold">
-                  Quando a dor vira sua rotina,
-                </span>
-                <br />
-                <span className="font-heading italic text-brand-primary">
-                  ela tem explicação e tratamento
-                </span>
-              </h2>
-            </div>
-
-            <div className="flex flex-col gap-6 rounded-2xl border border-brand-soft/10 bg-white p-8 text-base leading-relaxed text-text-body shadow-sm sm:p-10 sm:text-lg">
-              <p className="font-body">
-                Dor que vai e volta. Exame que não mostra nada de grave, mas o
-                desconforto continua. Rigidez de manhã, cansaço que não tem
-                explicação, articulação inchada sem motivo claro.
-              </p>
-
-              <p className="rounded-r-lg border-l-4 border-brand-primary bg-brand-primary/5 py-3 pl-4 font-body font-medium text-brand-dark italic">
-                Se isso descreve sua rotina, talvez o problema não seja
-                &quot;estresse&quot; ou &quot;idade&quot; — pode ser uma
-                condição reumatológica, e ela tem nome, explicação e tratamento.
-              </p>
-
-              <div className="mt-2 flex flex-col items-start justify-between gap-6 border-t border-brand-soft/10 pt-4 sm:flex-row sm:items-center">
-                <span className="font-body text-sm text-brand-dark/60">
-                  Não sofra em silêncio. Nós podemos ajudar a restabelecer sua
-                  qualidade de vida.
-                </span>
-                <a
-                  href="#hero"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary transition-all hover:translate-x-1 hover:text-brand-dark"
-                >
-                  Quero agendar consulta <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
+          <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-brand-soft/15 bg-bg-neutral p-6 sm:p-8">
+            <p className="font-body text-base leading-relaxed text-text-body sm:text-lg">
+              São quadros que um clínico geral resolve sem você precisar
+              enfrentar fila de pronto-socorro ou esperar dias por uma vaga.
+              Atendimento{" "}
+              <strong className="text-brand-dark">
+                presencial ou online
+              </strong>
+              , do jeito que for melhor pra você.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* SEÇÃO 3 — AUTORIDADE */}
+      {/* SEÇÃO 3 — PRATICIDADE */}
+      <section
+        id="praticidade"
+        className="border-y border-brand-soft/10 bg-[#FAFAF8] px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
+      >
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-14 flex flex-col items-center gap-4 text-center">
+            <h2 className="text-3xl leading-tight text-brand-dark sm:text-4xl lg:text-5xl">
+              <span className="font-body font-bold">
+                Atendimento rápido,
+              </span>
+              <br />
+              <span className="font-heading italic text-brand-primary">
+                sem burocracia
+              </span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {[
+              {
+                image: "/images/img_presencial.png",
+                label: "Presencial",
+                desc: "Consultório no Bairro Nacional, Contagem — estrutura completa, ambiente acolhedor.",
+              },
+              {
+                image: "/images/img_online.png",
+                label: "Online",
+                desc: "Consulta por videochamada, de onde você estiver. Resolve a maioria dos quadros sem sair de casa.",
+              },
+              {
+                image: "/images/img_atestado.png",
+                label: "Atestado incluído",
+                desc: "Precisa de atestado para o trabalho ou a faculdade? A consulta já resolve isso também.",
+              },
+            ].map(({ image, label, desc }) => (
+              <div
+                key={label}
+                className="flex flex-col items-center gap-4 rounded-2xl border border-brand-soft/15 bg-white p-8 text-center shadow-sm"
+              >
+                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-brand-primary/10">
+                  <Image
+                    src={image}
+                    alt=""
+                    width={68}
+                    height={68}
+                    className="object-contain"
+                  />
+                </div>
+                <span className="font-heading text-lg font-bold text-brand-dark">
+                  {label}
+                </span>
+                <p className="font-body text-sm leading-relaxed text-text-body/80">
+                  {desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-brand-soft/10 bg-white p-6 font-body text-base leading-relaxed text-text-body shadow-sm sm:p-8 sm:text-lg">
+            <p>
+              Consulta particular, sem depender de convênio e sem papelada. A
+              Dra. Danielle reserva tempo real para entender seu quadro e indicar
+              o tratamento certo — e, quando a agenda permite, o atendimento
+              acontece{" "}
+              <strong className="text-brand-dark">no mesmo dia</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 4 — AUTORIDADE */}
       <section
         id="autoridade"
-        className="border-y border-brand-soft/10 bg-[#FAFAF8] px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
+        className="bg-bg-neutral px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
       >
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="order-2 lg:order-1 lg:col-span-5">
               <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-2xl border-4 border-white bg-white shadow-lg">
                 <Image
-                  src="/images/about-us-juliana.jpeg"
-                  alt="Dra. Juliana Mendonça no consultório"
+                  src="/images/about-us-danielle-branco.jpeg"
+                  alt="Dra. Danielle Costa no consultório"
                   fill
                   quality={100}
                   sizes="(min-width: 1024px) 40vw, 100vw"
@@ -340,166 +372,39 @@ export default function ReumatologiaContent() {
             <div className="order-1 flex flex-col items-start gap-6 lg:order-2 lg:col-span-7">
               <span className="inline-flex items-center gap-2 rounded-full border border-brand-soft bg-white/70 px-4 py-2 font-body text-sm text-brand-dark">
                 <Star className="h-4 w-4 shrink-0 fill-brand-primary text-brand-primary" />
-                Dra. Juliana Mendonça
+                Dra. Danielle Costa
               </span>
 
               <div className="flex flex-col gap-1.5">
                 <h3 className="font-heading text-3xl font-bold text-brand-dark sm:text-4xl">
-                  Dra. Juliana Mendonça
+                  Dra. Danielle Costa
                 </h3>
                 <span className="font-body text-sm font-medium tracking-wide text-brand-primary sm:text-base">
-                  CRM-MG 100919 — Pós-graduanda em Reumatologia, Geriatria e Dor
-                  e Inflamações
+                  CRM-MG 97.775 — Clínica Geral e Gastroenterologia
                 </span>
               </div>
-
-              <h2 className="mt-2 text-3xl leading-tight text-brand-dark sm:text-4xl lg:text-5xl">
-                <span className="font-body font-bold">
-                  Investigação detalhada
-                </span>
-                <br />
-                <span className="font-heading italic text-brand-primary">
-                  e plano de tratamento contínuo
-                </span>
-              </h2>
 
               <div className="flex flex-col gap-4 font-body text-base leading-relaxed text-text-body sm:text-lg">
                 <p>
-                  Cada consulta começa com tempo real pra ouvir sua história,
-                  seus exames antigos, o que você já tentou e não resolveu. Nada
-                  de receita genérica em cinco minutos. Aqui o cuidado é
-                  construído com calma, porque dor crônica não se trata com
-                  solução única, se trata com continuidade.
-                </p>
-                <p>
-                  Para quem já circulou por vários médicos sem resposta clara, a
-                  proposta é simples: investigar a fundo, explicar o que está
-                  acontecendo no seu corpo e construir, junto com você, um plano
-                  que devolva qualidade de vida no seu dia a dia não só um exame
-                  normal.
+                  Atendimento humanizado, com escuta atenta e foco em resolver
+                  seu problema de forma segura. Consulta particular, presencial
+                  no bairro Nacional ou online de onde você estiver.
                 </p>
               </div>
 
-              <div className="mt-6 w-full rounded-xl border border-brand-soft/20 bg-brand-primary/5 p-4 font-body text-sm leading-relaxed text-brand-dark">
+              <div className="mt-2 w-full rounded-xl border border-brand-soft/20 bg-brand-primary/5 p-5 font-body text-sm leading-relaxed text-brand-dark">
                 <strong>Atendimento na VivaClin Saúde</strong> — estrutura
-                própria para acompanhamento contínuo, com exames de apoio e
-                retorno facilitado.
+                completa de clínica geral, com agilidade e acolhimento.
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SEÇÃO 4 — CONDIÇÕES ATENDIDAS */}
-      <section
-        id="tratamos"
-        className="bg-bg-neutral px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
-      >
-        <div className="mx-auto max-w-[1536px]">
-          <div className="mx-auto mb-16 flex max-w-3xl flex-col items-center gap-4 text-center">
-            <h2 className="text-3xl leading-tight text-brand-dark sm:text-4xl lg:text-5xl">
-              <span className="font-body font-bold">O que tratamos</span>
-              <br />
-              <span className="font-heading italic text-brand-primary">
-                em nosso consultório
-              </span>
-            </h2>
-
-            <p className="max-w-2xl font-body text-base text-text-body sm:text-lg">
-              Não sabe ainda qual é o problema? Sem diagnóstico fechado também é
-              motivo válido para consultar.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {CONDITIONS.map((condition) => (
-              <div
-                key={condition.title}
-                className="group flex flex-col rounded-2xl border border-brand-soft/10 bg-white p-6 shadow-sm transition-all duration-300 hover:border-brand-soft/40 hover:shadow-md sm:p-8"
-              >
-                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-brand-soft/20 bg-brand-primary/10">
-                  <Image
-                    src={condition.image}
-                    alt=""
-                    width={64}
-                    height={64}
-                    className="object-contain"
-                  />
-                </div>
-
-                <h3 className="mb-3 font-heading text-xl font-bold text-brand-dark transition-colors group-hover:text-brand-primary">
-                  {condition.title}
-                </h3>
-
-                <p className="font-body text-sm leading-relaxed text-text-body/90 sm:text-base">
-                  {condition.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <a
-              href="#hero"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-6 py-3 font-body text-sm font-semibold text-white shadow-md transition-all hover:bg-brand-primary/95 sm:text-base"
-            >
-              <MessageCircle className="h-4 w-4 shrink-0" />
-              Falar com equipe de atendimento
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* SEÇÃO 5 — ACOMPANHAMENTO CONTÍNUO */}
-      <section
-        id="acompanhamento"
-        className="border-y border-brand-soft/10 bg-[#FAFAF8] px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
-      >
-        <div className="mx-auto max-w-4xl">
-          <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-12 md:gap-12">
-            <div className="flex flex-col items-start gap-4 md:col-span-8">
-              <span className="inline-flex items-center gap-2 rounded-full border border-brand-soft bg-white/70 px-4 py-2 font-body text-sm text-brand-dark">
-                <ClipboardList className="h-4 w-4 shrink-0 fill-brand-primary text-brand-primary" />
-                Segurança Legal e Acompanhamento
-              </span>
-
-              <h2 className="text-3xl leading-tight text-brand-dark sm:text-4xl lg:text-5xl">
-                <span className="font-body font-bold">Acompanhamento</span>
-                <br />
-                <span className="font-heading italic text-brand-primary">
-                  com regularidade e precisão
-                </span>
-              </h2>
-
-              <p className="mt-2 font-body text-base leading-relaxed text-text-body sm:text-lg">
-                Quem já tem diagnóstico de fibromialgia ou outra condição
-                crônica sabe como é importante manter os relatórios e laudos
-                atualizados. Aqui esse acompanhamento tem rotina — sem precisar
-                correr atrás às vésperas do prazo.
-              </p>
-            </div>
-
-            <div className="flex justify-center md:col-span-4">
-              <div className="group flex h-48 w-48 flex-col items-center justify-center rounded-2xl border border-brand-soft/20 bg-white p-6 text-center shadow-sm sm:h-56 sm:w-56">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-brand-primary/15 text-brand-primary transition-transform duration-300 group-hover:scale-110">
-                  <FileText className="h-8 w-8" />
-                </div>
-                <span className="font-heading text-lg font-bold text-brand-dark">
-                  Laudos Emitidos
-                </span>
-                <span className="mt-1 font-body text-xs font-medium text-brand-primary">
-                  Rotina Sem Complicação
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SEÇÃO 6 — LOCALIZAÇÃO E ACESSO */}
+      {/* SEÇÃO 5 — LOCALIZAÇÃO */}
       <section
         id="localizacao"
-        className="bg-bg-neutral px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
+        className="border-y border-brand-soft/10 bg-[#FAFAF8] px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
       >
         <div className="mx-auto flex max-w-7xl flex-col gap-12">
 
@@ -520,9 +425,10 @@ export default function ReumatologiaContent() {
               </h2>
 
               <p className="font-body text-base leading-relaxed text-text-body sm:text-lg">
-                Consultório de fácil acesso, com atendimento presencial e online
-                conforme a necessidade. Pacientes de Contagem e região,
-                incluindo Betim, já fazem parte da rotina da clínica.
+                Atendimento presencial no bairro Nacional, com fácil acesso
+                para toda a região de Contagem e cidades vizinhas. Prefere ser
+                atendido de casa? A consulta online resolve a maioria dos
+                quadros sem você precisar sair.
               </p>
             </div>
 
@@ -647,7 +553,7 @@ export default function ReumatologiaContent() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Localização VivaClin"
+                title="Localização VivaClin Saúde"
               />
             </div>
           </div>
@@ -655,10 +561,10 @@ export default function ReumatologiaContent() {
         </div>
       </section>
 
-      {/* SEÇÃO 7 — PROVA SOCIAL */}
+      {/* SEÇÃO 6 — PROVA SOCIAL */}
       <section
         id="avaliacoes"
-        className="border-y border-brand-soft/10 bg-white px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
+        className="bg-white px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
       >
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 flex flex-col items-center gap-4 text-center">
@@ -668,19 +574,12 @@ export default function ReumatologiaContent() {
             </span>
 
             <h2 className="text-3xl leading-tight text-brand-dark sm:text-4xl lg:text-5xl">
-              <span className="font-body font-bold">
-                O que os pacientes dizem
-              </span>
+              <span className="font-body font-bold">O que os pacientes</span>
               <br />
               <span className="font-heading italic text-brand-primary">
-                recomendações e relatos reais
+                dizem
               </span>
             </h2>
-
-            <p className="max-w-xl font-body text-base text-text-body sm:text-lg">
-              Cada estrela aqui é de alguém que também já passou por dor sem
-              resposta.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3">
@@ -729,7 +628,7 @@ export default function ReumatologiaContent() {
             ))}
           </div>
 
-          <div className="mt-8 flex items-center justify-center gap-1.5 font-body text-xs text-brand-dark/50 sm:text-sm">
+          <div className="mt-8 flex items-center justify-center font-body text-xs text-brand-dark/50 sm:text-sm">
             <span>
               Avaliado com <strong>5.0/5.0 estrelas</strong> com base em
               depoimentos espontâneos do Google.
@@ -738,7 +637,7 @@ export default function ReumatologiaContent() {
         </div>
       </section>
 
-      {/* SEÇÃO 8 — CTA FINAL */}
+      {/* SEÇÃO 7 — CTA FINAL */}
       <section
         id="cta-final"
         className="relative overflow-hidden bg-brand-dark px-6 py-20 text-white sm:px-10 sm:py-24 lg:px-20"
@@ -749,27 +648,27 @@ export default function ReumatologiaContent() {
         <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-8 text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 font-body text-sm text-white">
             <Heart className="h-4 w-4 shrink-0 fill-white text-white" />
-            Recupere seu bem-estar
+            Cuide disso agora
           </span>
 
           <h2 className="text-3xl leading-tight text-white sm:text-4xl lg:text-5xl">
             <span className="font-body font-bold">
-              O primeiro passo é simples:
+              Cuide disso agora,
             </span>
             <br />
             <span className="font-heading italic text-brand-soft">
-              marcar a consulta
+              do jeito mais simples.
             </span>
           </h2>
 
           <p className="max-w-2xl font-body text-base leading-relaxed text-white/90 sm:text-lg">
-            Atendimento particular, sem burocracia de convênio. Ligue ou mande
-            mensagem — o que for mais fácil pra você.
+            Atendimento particular de clínica geral, presencial ou online. Ligue
+            ou mande mensagem — o que for mais fácil pra você.
           </p>
 
           <div className="mt-4 flex w-full flex-col items-stretch justify-center gap-4 sm:w-auto sm:flex-row sm:items-center">
             <a
-              href={WHATSAPP_REUMATO_URL}
+              href={WHATSAPP_CLINICA_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-brand-primary px-6 py-3.5 font-body text-white shadow-md transition-all hover:bg-brand-primary/95 hover:shadow-lg sm:w-auto"
@@ -784,10 +683,10 @@ export default function ReumatologiaContent() {
 
             <a
               href="tel:+5531920090831"
-              className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-brand-primary px-6 py-3.5 font-body text-white shadow-md transition-all hover:bg-brand-primary/95 hover:shadow-lg sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-3 rounded-full border-2 border-white/30 bg-white/10 px-6 py-3 font-body text-white shadow-sm transition-all hover:bg-white/20 sm:w-auto"
             >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-brand-primary">
-                <Phone className="h-4 w-4 fill-brand-primary text-brand-primary" />
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/20 text-white">
+                <Phone className="h-4 w-4" />
               </span>
               <span className="text-sm font-semibold tracking-wide sm:text-base">
                 (31) 92009-0831
@@ -796,8 +695,7 @@ export default function ReumatologiaContent() {
           </div>
 
           <p className="mt-8 max-w-md border-t border-white/10 pt-6 font-body text-xs leading-normal text-white/60">
-            Dra. Juliana Mendonça • CRM-MG 100919 — Estética e termos médicos de
-            acordo com o Manual de Publicidade Médica do CFM.
+            VivaClin Saúde — Rua Sete de Setembro, 863, Nacional, Contagem-MG
           </p>
         </div>
       </section>

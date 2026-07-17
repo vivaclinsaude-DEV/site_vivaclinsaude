@@ -10,14 +10,13 @@ export default function Hero() {
         alt="Dra. Juliana Coimbra de Mendonça e Dra. Danielle Lima da Costa, médicas da VivaClin Saúde"
         fill
         priority
+        quality={100}
         sizes="100vw"
         className="object-cover"
       />
 
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(74,27,12,0.5)_0%,rgba(74,27,12,0.15)_35%,transparent_55%)] sm:hidden" />
-      <div className="absolute inset-0 hidden bg-[linear-gradient(to_right,rgba(74,27,12,0.5)_0%,rgba(74,27,12,0.2)_30%,transparent_55%)] sm:block" />
 
-      <div className="relative z-10 flex h-full items-center px-6 sm:px-10 lg:px-20">
+<div className="relative z-10 flex h-full items-center px-6 sm:px-10 lg:px-20">
         <div className="flex max-w-md flex-col items-start gap-6 lg:max-w-lg">
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-soft bg-white/20 px-4 py-2 font-body text-sm text-white backdrop-blur-sm">
             <ShieldCheck className="h-4 w-4" />
