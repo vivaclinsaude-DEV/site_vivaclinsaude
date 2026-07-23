@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ClinicaGeralContent from "./ClinicaGeralContent";
 
 export const metadata: Metadata = {
-  title: "Clínica Geral em Contagem | VivaClin Saúde",
+  title: "Clínico Geral em Contagem | Consulta Particular Sem Fila | VivaClin",
   description:
-    "Gripe, febre, dor de garganta? Atendimento de clínica geral particular com a Dra. Danielle Costa na VivaClin Saúde, em Contagem - MG. Presencial ou online, sem fila.",
+    "Consulta particular de clínico geral em Contagem, sem convênio e sem fila. Atestado médico incluso. Presencial no bairro Nacional ou online. Agende com a Dra. Danielle Costa: (31) 92009-0831.",
 };
 
 export default function ClinicaGeralPage() {

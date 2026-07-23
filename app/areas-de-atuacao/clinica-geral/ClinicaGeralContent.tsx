@@ -31,12 +31,14 @@ interface Review {
 }
 
 const SYMPTOMS: Symptom[] = [
-  { title: "Gripe e resfriado forte", image: "/images/img_gripe_refriado_forte.png" },
-  { title: "Dor de garganta e infecção", image: "/images/img_dor_garganta_infec.png" },
-  { title: "Febre que não passa", image: "/images/img_febre.png" },
-  { title: "Sinusite e congestão", image: "/images/img_sinusite.png" },
-  { title: "Bronquite e tosse persistente", image: "/images/img_bronquite.png" },
-  { title: "Virose e mal-estar", image: "/images/img_virose.png" },
+  { title: "Gripe, resfriado e sintomas respiratórios", image: "/images/img_gripe_refriado_forte.png" },
+  { title: "Dor de garganta, sinusite e bronquite", image: "/images/img_sinusite.png" },
+  { title: "Dor abdominal e desconforto digestivo", image: "/images/img_virose.png" },
+  { title: "Atestado médico", image: "/images/img_atestado.png" },
+  { title: "Liberação para atividade física", image: "/images/img_presencial.png" },
+  { title: "Renovação de receita", image: "/images/img_online.png" },
+  { title: "Check-up e avaliação geral", image: "/images/img_dor_garganta_infec.png" },
+  { title: "Cansaço e dores sem causa definida", image: "/images/img_bronquite.png" },
 ];
 
 const GOOGLE_REVIEWS_URL = "https://maps.app.goo.gl/cRrJeuxN6TSghugS8";
@@ -146,17 +148,17 @@ export default function ClinicaGeralContent() {
               </span>
 
               <h1 className="font-heading text-3xl leading-[1.1] tracking-tight text-brand-dark sm:text-5xl lg:text-6xl">
-                Gripe, dor de garganta, febre?{" "}
+                Consulta com Clínico Geral em Contagem,{" "}
                 <em className="font-light text-brand-primary italic">
-                  A clínica geral que resolve, em Contagem.
+                  sem fila e sem convênio
                 </em>
               </h1>
 
               <p className="max-w-2xl font-body text-base leading-relaxed text-text-body sm:text-lg">
-                Atendimento particular com a{" "}
-                <strong>Dra. Danielle Costa</strong>, presencial ou online. Sem
-                fila de UPA, sem espera de posto — cuidado de verdade quando
-                você não está bem.
+                Atendimento particular no bairro Nacional. Consulta de 30
+                minutos, presencial ou online, com{" "}
+                <strong>atestado médico incluso</strong>. Agende hoje pelo
+                WhatsApp.
               </p>
 
               <div className="mt-2 flex w-full flex-col items-stretch gap-4 sm:mt-4 sm:w-auto sm:flex-row sm:items-center">
@@ -170,7 +172,7 @@ export default function ClinicaGeralContent() {
                     <MessageCircle className="h-4 w-4 fill-brand-primary text-brand-primary" />
                   </span>
                   <span className="text-sm font-semibold tracking-wide sm:text-base">
-                    Agendar pelo WhatsApp
+                    Agendar minha consulta
                   </span>
                 </a>
 
@@ -223,6 +225,31 @@ export default function ClinicaGeralContent() {
         </div>
       </section>
 
+      {/* FAIXA DE SELOS */}
+      <div className="border-y border-brand-soft/10 bg-white px-6 py-5 sm:px-10 lg:px-20">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-3 font-body text-sm font-medium text-brand-dark/70">
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-primary" />
+            Sem fila
+          </span>
+          <span className="hidden text-brand-soft/30 sm:inline">|</span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-primary" />
+            30 minutos de consulta
+          </span>
+          <span className="hidden text-brand-soft/30 sm:inline">|</span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-primary" />
+            Atestado incluso
+          </span>
+          <span className="hidden text-brand-soft/30 sm:inline">|</span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-primary" />
+            Presencial ou online
+          </span>
+        </div>
+      </div>
+
       {/* SEÇÃO 2 — SINTOMAS */}
       <section
         id="sintomas"
@@ -232,16 +259,16 @@ export default function ClinicaGeralContent() {
           <div className="mx-auto mb-14 flex max-w-3xl flex-col items-center gap-4 text-center">
             <h2 className="text-3xl leading-tight text-brand-dark sm:text-4xl lg:text-5xl">
               <span className="font-body font-bold">
-                Está com algum desses
+                Quando procurar um
               </span>
               <br />
               <span className="font-heading italic text-brand-primary">
-                sintomas?
+                clínico geral
               </span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {SYMPTOMS.map((symptom) => (
               <div
                 key={symptom.title}
@@ -277,7 +304,7 @@ export default function ClinicaGeralContent() {
         </div>
       </section>
 
-      {/* SEÇÃO 3 — PRATICIDADE */}
+      {/* SEÇÃO 3 — DIFERENCIAIS */}
       <section
         id="praticidade"
         className="border-y border-brand-soft/10 bg-[#FAFAF8] px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
@@ -286,31 +313,36 @@ export default function ClinicaGeralContent() {
           <div className="mb-14 flex flex-col items-center gap-4 text-center">
             <h2 className="text-3xl leading-tight text-brand-dark sm:text-4xl lg:text-5xl">
               <span className="font-body font-bold">
-                Atendimento rápido,
+                Por que a
               </span>
               <br />
               <span className="font-heading italic text-brand-primary">
-                sem burocracia
+                VivaClin
               </span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 image: "/images/img_presencial.png",
-                label: "Presencial",
-                desc: "Consultório no Bairro Nacional, Contagem — estrutura completa, ambiente acolhedor.",
-              },
-              {
-                image: "/images/img_online.png",
-                label: "Online",
-                desc: "Consulta por videochamada, de onde você estiver. Resolve a maioria dos quadros sem sair de casa.",
+                label: "Consulta de 30 minutos",
+                desc: "Tempo real para ouvir o paciente e entender o quadro com cuidado.",
               },
               {
                 image: "/images/img_atestado.png",
-                label: "Atestado incluído",
-                desc: "Precisa de atestado para o trabalho ou a faculdade? A consulta já resolve isso também.",
+                label: "Sem convênio, sem fila",
+                desc: "Atendimento particular, você agenda quando precisar, sem depender de plano.",
+              },
+              {
+                image: "/images/img_online.png",
+                label: "Bairro Nacional, Contagem",
+                desc: "Clínica com estrutura completa, fácil acesso para toda a região.",
+              },
+              {
+                image: "/images/img_febre.png",
+                label: "Presencial ou online",
+                desc: "Você escolhe o formato. A maioria dos quadros resolve sem sair de casa.",
               },
             ].map(({ image, label, desc }) => (
               <div
@@ -677,7 +709,7 @@ export default function ClinicaGeralContent() {
                 <MessageCircle className="h-4 w-4 fill-brand-primary text-brand-primary" />
               </span>
               <span className="text-sm font-semibold tracking-wide sm:text-base">
-                Agendar pelo WhatsApp
+                Agendar minha consulta
               </span>
             </a>
 
