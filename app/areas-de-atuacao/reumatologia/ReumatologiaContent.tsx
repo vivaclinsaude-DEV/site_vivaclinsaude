@@ -185,7 +185,7 @@ export default function ReumatologiaContent() {
               <h1 className="font-heading text-3xl leading-[1.12] tracking-tight text-brand-dark sm:text-5xl lg:text-6xl">
                 Dor nas articulações que não passa?{" "}
                 <em className="font-light text-brand-primary italic">
-                  Pode ser hora de procurar atendimento especializado na área
+                  Pode ser hora de procurar atendimento voltado para a área
                   reumatológica.
                 </em>
               </h1>
@@ -349,7 +349,7 @@ export default function ReumatologiaContent() {
                 </h3>
                 <span className="font-body text-sm font-medium tracking-wide text-brand-primary sm:text-base">
                   CRM-MG 100919 — Pós-graduanda em Reumatologia, Geriatria e Dor
-                  e Inflamações
+                  e Inflamações – NÃO ESPECIALISTA
                 </span>
               </div>
 
@@ -473,7 +473,7 @@ export default function ReumatologiaContent() {
 
               <p className="mt-2 font-body text-base leading-relaxed text-text-body sm:text-lg">
                 Quem já tem diagnóstico de fibromialgia ou outra condição
-                crônica sabe como é importante manter os relatórios e laudos
+                crônica sabe como é importante manter os relatórios médicos
                 atualizados. Aqui esse acompanhamento tem rotina — sem precisar
                 correr atrás às vésperas do prazo.
               </p>
@@ -485,7 +485,7 @@ export default function ReumatologiaContent() {
                   <FileText className="h-8 w-8" />
                 </div>
                 <span className="font-heading text-lg font-bold text-brand-dark">
-                  Laudos Emitidos
+                  Relatórios Emitidos
                 </span>
                 <span className="mt-1 font-body text-xs font-medium text-brand-primary">
                   Rotina Sem Complicação
