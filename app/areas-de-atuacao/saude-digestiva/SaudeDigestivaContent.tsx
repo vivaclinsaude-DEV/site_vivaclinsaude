@@ -117,7 +117,7 @@ const SPACES = [
 ];
 
 const WHATSAPP_URL =
-  "https://wa.me/5531920090831?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20saúde%20digestiva%20com%20a%20Dra.%20Danielle%20Costa.";
+  "https://wa.me/5531920090831?text=Ol%C3%A1!%20Gostaria%20de%20marcar%20uma%20consulta%20na%20%C3%A1rea%20de%20gastroenterologia%20com%20a%20Dra.%20Danielle.";
 
 export default function SaudeDigestivaContent() {
   const [activeSpaceIndex, setActiveSpaceIndex] = useState(0);
@@ -146,16 +146,15 @@ export default function SaudeDigestivaContent() {
               </span>
 
               <h1 className="font-heading text-3xl leading-[1.1] tracking-tight text-brand-dark sm:text-5xl lg:text-6xl">
-                Dor de barriga, diarreia, mal-estar no estômago?{" "}
+                Atendimento em gastroenterologia,{" "}
                 <em className="font-light text-brand-primary italic">
-                  Atendimento no mesmo dia, em Contagem.
+                  em Contagem.
                 </em>
               </h1>
 
               <p className="max-w-2xl font-body text-base leading-relaxed text-text-body sm:text-lg">
-                Consulta com a <strong>Dra. Danielle Costa</strong>, com foco
-                em saúde digestiva, no bairro Nacional, em Contagem. Atendimento
-                presencial ou online, sem semanas de espera para ser atendido.
+                Cuidado para quem convive com azia, refluxo, gastrite ou má
+                digestão. Presencial ou online, no bairro Nacional.
               </p>
 
               <div className="mt-2 flex w-full flex-col items-stretch gap-4 sm:mt-4 sm:w-auto sm:flex-row sm:items-center">
@@ -193,7 +192,7 @@ export default function SaudeDigestivaContent() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-primary" />
-                  Sem convênio, sem fila
+                  Consulta particular, com hora marcada
                 </span>
               </div>
             </div>
@@ -202,7 +201,7 @@ export default function SaudeDigestivaContent() {
               <div className="group relative aspect-[3/4] w-full max-w-md overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:max-w-none">
                 <Image
                   src="/images/about-us-danielle-branco.jpeg"
-                  alt="Dra. Danielle Costa — foco em saúde digestiva"
+                  alt="Dra. Danielle Costa — atendimento em gastroenterologia"
                   fill
                   quality={100}
                   sizes="(min-width: 1024px) 40vw, 100vw"
@@ -213,7 +212,7 @@ export default function SaudeDigestivaContent() {
                     Dra. Danielle Costa
                   </span>
                   <span className="mt-0.5 block font-body text-xs font-medium tracking-wider text-brand-primary uppercase">
-                    CRM-MG 97.775 • Foco em Saúde Digestiva
+                    CRM-MG 97.775 • Atendimento em gastroenterologia
                   </span>
                 </div>
               </div>
@@ -301,7 +300,7 @@ export default function SaudeDigestivaContent() {
         </div>
       </section>
 
-      {/* SEÇÃO 3 — ATENDIMENTO RÁPIDO */}
+      {/* SEÇÃO 3 — COMO É O ATENDIMENTO */}
       <section
         id="atendimento"
         className="border-y border-brand-soft/10 bg-[#FAFAF8] px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
@@ -309,27 +308,25 @@ export default function SaudeDigestivaContent() {
         <div className="mx-auto max-w-5xl">
           <div className="mb-10 flex flex-col items-center gap-4 text-center">
             <h2 className="text-3xl leading-tight text-brand-dark sm:text-4xl lg:text-5xl">
-              <span className="font-body font-bold">Sem semanas de espera</span>
+              <span className="font-body font-bold">Como é o atendimento</span>
               <br />
               <span className="font-heading italic text-brand-primary">
-                para ser atendido
+                em gastroenterologia
               </span>
             </h2>
           </div>
 
           <div className="mx-auto max-w-3xl flex flex-col gap-5 font-body text-base leading-relaxed text-text-body sm:text-lg">
             <p>
-              Quando o estômago ou o intestino não vão bem, esperar duas ou três
-              semanas por uma consulta não é uma opção. Muita clínica da região
-              demora para encaixar o paciente, e o desconforto continua nesse
-              meio tempo.
+              A consulta começa com uma conversa detalhada sobre o que você
+              sente, há quanto tempo e o que costuma piorar ou aliviar. A Dra.
+              Danielle reserva tempo real para entender seu caso — seja um
+              quadro agudo, seja um problema que já se arrasta e precisa ser{" "}
+              <strong className="text-brand-dark">investigado a fundo</strong>.
             </p>
             <p>
-              Na VivaClin, o atendimento acontece com hora marcada e, quando a
-              agenda permite, no mesmo dia. A Dra. Danielle reserva tempo real
-              para entender seu caso — seja um quadro agudo que precisa de
-              resposta rápida, seja um problema que já se arrasta e precisa ser{" "}
-              <strong className="text-brand-dark">investigado a fundo</strong>.
+              O atendimento é com hora marcada, sem fila, e quando a agenda
+              permite pode acontecer no mesmo dia.
             </p>
           </div>
 
@@ -416,8 +413,8 @@ export default function SaudeDigestivaContent() {
               </div>
 
               <div className="mt-2 w-full rounded-xl border border-brand-soft/20 bg-brand-primary/5 p-5 font-body text-sm leading-relaxed text-brand-dark">
-                <strong>Atendimento na VivaClin Saúde</strong> — cuidado
-                próximo e ágil para a sua saúde digestiva.
+                <strong>Atendimento em gastroenterologia na VivaClin
+                Saúde</strong> — cuidado próximo para a sua saúde digestiva.
               </div>
             </div>
           </div>
@@ -685,8 +682,8 @@ export default function SaudeDigestivaContent() {
           </h2>
 
           <p className="max-w-2xl font-body text-base leading-relaxed text-white/90 sm:text-lg">
-            Atendimento particular com foco em saúde digestiva, presencial ou
-            online, com hora marcada. Ligue ou mande mensagem — o que for mais
+            Atendimento particular em gastroenterologia, presencial ou online,
+            com hora marcada. Ligue ou mande mensagem — o que for mais
             fácil pra você.
           </p>
 
