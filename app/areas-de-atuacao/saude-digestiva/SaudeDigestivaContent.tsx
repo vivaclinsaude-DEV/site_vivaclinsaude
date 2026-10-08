@@ -153,8 +153,10 @@ export default function SaudeDigestivaContent() {
               </h1>
 
               <p className="max-w-2xl font-body text-base leading-relaxed text-text-body sm:text-lg">
-                Cuidado para quem convive com azia, refluxo, gastrite ou má
-                digestão. Presencial ou online, no bairro Nacional.
+                Desconfortos no estômago, alterações intestinais ou dúvidas
+                sobre exames do fígado? Conte com uma avaliação médica
+                individualizada para entender seu caso e orientar os próximos
+                passos do seu cuidado.
               </p>
 
               <div className="mt-2 flex w-full flex-col items-stretch gap-4 sm:mt-4 sm:w-auto sm:flex-row sm:items-center">
